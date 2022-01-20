@@ -1,33 +1,34 @@
+image: python:latest
+
+cache:
+  paths:
+    - venv/
+
 stages:
-  - build
+  - compile
   - test
   - deploy
 
-build-job:
-  stage: build
+before_test:
+  stage: compile
   script:
-    - echo "Hello, $GITLAB_USER_LOGIN. Building..."
-    - mkdir build
-    - touch build/info.txt
-  artifacts:
-    paths:
-      - build/
+    - python --verion # for debugging
+    - pip install virtualenv flask
 
-test-job1:
+test-setup:
   stage: test
   script:
-    - echo "Testing... "
-    - test -f "build/info.txt"
+    - echo "Testing running of setup file"
+    - python3 setup.py
 
-test-job2:
+test-file:
   stage: test
   script:
-    - echo "This job tests something, but takes more time than test-job1."
-    - echo "After the echo commands complete, it runs the sleep command for 20 seconds"
-    - echo "which simulates a test that runs 20 seconds longer than test-job1"
+    - echo "This job tests our main .py file."
+    # - python our_file.py
     - sleep 20
 
 deploy-prod:
   stage: deploy
   script:
-    - echo "This job deploys something from the $CI_COMMIT_BRANCH branch."
+    - echo "I will deploy now to Heroku."
