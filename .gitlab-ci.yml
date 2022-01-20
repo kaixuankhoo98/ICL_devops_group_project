@@ -12,7 +12,7 @@ stages:
 before_test:
   stage: compile
   script:
-    - python --verion # for debugging
+    - python --version # for debugging
     - pip install virtualenv flask
 
 test-setup:
