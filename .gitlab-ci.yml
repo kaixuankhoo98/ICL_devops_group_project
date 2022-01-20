@@ -19,7 +19,7 @@ test-setup:
   stage: test
   script:
     - echo "Testing running of setup file"
-    - # python3 setup.py
+    # - python3 setup.py
 
 test-file:
   stage: test
