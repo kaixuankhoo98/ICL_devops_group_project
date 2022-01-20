@@ -9,6 +9,9 @@ build-job:
     - echo "Hello, $GITLAB_USER_LOGIN. Building..."
     - mkdir build
     - touch build/info.txt
+  artifacts:
+    paths:
+      - build/
 
 test-job1:
   stage: test
