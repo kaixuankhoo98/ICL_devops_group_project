@@ -19,16 +19,17 @@ test-setup:
   stage: test
   script:
     - echo "Testing running of setup file"
-    # - python3 setup.py
+    # - python3 setup.py # dunno if this is necessary
 
-test-file:
+test-processor:
   stage: test
   script:
-    - echo "This job tests our main .py file."
-    # - python our_file.py
-    - sleep 20
+    - pip install pytest_yaml
+    - echo "This job tests our main test_query_processory.py file."
+    - pytest --version # for debugging
+    - pytest ./tests/test_query_processor.py # or include python3 -m (in front)
 
 deploy-prod:
   stage: deploy
   script:
-    - echo "I will deploy now to Heroku."
+    - echo "I will deploy now to Heroku." # then we deploy from here...
