@@ -27,7 +27,7 @@ test-processor:
     - pip install pytest_yaml
     - echo "This job tests our main test_query_processory.py file."
     - pytest --version # for debugging
-    - py.test ./tests/test_query_processor.py # or include python3 -m (in front)
+    - python -m py.test ./tests/test_query_processor.py # or include python3 -m (in front)
 
 deploy-prod:
   stage: deploy
