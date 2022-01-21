@@ -12,6 +12,7 @@ stages:
 before_test:
   stage: compile
   script:
+    - sudo apt install python3-pip
     - python --version # for debugging
     - pip install virtualenv flask
 
@@ -24,10 +25,11 @@ test-setup:
 test-processor:
   stage: test
   script:
+    - pip uninstall pytest_yaml
     - pip install pytest_yaml
     - echo "This job tests our main test_query_processory.py file."
     - pytest --version # for debugging
-    - python -m py.test ./tests/test_query_processor.py # or include python3 -m (in front)
+    - py.test ./tests/test_query_processor.py # or include python3 -m (in front)
 
 deploy-prod:
   stage: deploy
