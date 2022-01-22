@@ -34,3 +34,7 @@ deploy-prod:
   stage: deploy
   script:
     - echo "I will deploy now to Heroku." # then we deploy from here...
+
+  #for adding docker image later. to be tested
+  #default:
+    #image: ruby:2.7.4
