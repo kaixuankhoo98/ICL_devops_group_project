@@ -13,7 +13,7 @@ before_test:
   stage: compile
   script:
     - python --version # for debugging
-    - pip install virtualenv
+    #- pip install virtualenv
 
 test-setup:
   stage: test
@@ -24,8 +24,8 @@ test-setup:
 test-processor:
   stage: test
   script:
-    - pip install pytest_yaml
-    - pip install Flask
+    #- pip install pytest_yaml
+    #- pip install Flask
     - echo "This job tests our main test_query_processory.py file."
     - pytest --version # for debugging
     - py.test ./tests/test_query_processor.py # or include python3 -m (in front)
