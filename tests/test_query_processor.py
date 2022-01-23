@@ -1,5 +1,4 @@
 import pytest
-from flask import Flask
 
 from literature_searcher.query_processor import process
 
