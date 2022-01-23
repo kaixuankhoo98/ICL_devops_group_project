@@ -12,8 +12,8 @@ stages:
 before_test:
   stage: compile
   script:
-    #- python --version # for debugging
-    #- pip install virtualenv
+    - python --version # for debugging
+    - pip install virtualenv
     - pip install -r requirements.txt
 
 test-setup:
@@ -25,7 +25,7 @@ test-setup:
      - python -c "import sys;print(sys.path)"
      - pytest
      - echo "Testing running of setup file"
-    # - python3 setup.py # dunno if this is necessary
+     - python3 setup.py # dunno if this is necessary
 
 test-processor:
   stage: test
