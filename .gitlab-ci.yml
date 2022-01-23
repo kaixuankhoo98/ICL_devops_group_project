@@ -24,7 +24,6 @@ test-setup:
 test-processor:
   stage: test
   script:
-    - pip uninstall pytest_yaml
     - pip install pytest_yaml
     - echo "This job tests our main test_query_processory.py file."
     - pytest --version # for debugging
