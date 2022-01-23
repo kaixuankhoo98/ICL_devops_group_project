@@ -12,8 +12,9 @@ stages:
 before_test:
   stage: compile
   script:
-    - python --version # for debugging
+    #- python --version # for debugging
     #- pip install virtualenv
+    - pip install -r requirements.txt
 
 test-setup:
   stage: test
