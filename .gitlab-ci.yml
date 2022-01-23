@@ -19,7 +19,12 @@ before_test:
 test-setup:
   stage: test
   script:
-    - echo "Testing running of setup file"
+     - pwd
+     - ls -l
+     - export PYTHONPATH="$PYTHONPATH:."
+     - python -c "import sys;print(sys.path)"
+     - pytest
+     - echo "Testing running of setup file"
     # - python3 setup.py # dunno if this is necessary
 
 test-processor:
