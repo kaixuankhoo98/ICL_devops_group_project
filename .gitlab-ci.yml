@@ -25,6 +25,7 @@ test-setup:
      - python -c "import sys;print(sys.path)"
      - pytest
      - echo "Testing running of setup file"
+     - python -m pytest
      - python3 setup.py # dunno if this is necessary
 
 test-processor:
