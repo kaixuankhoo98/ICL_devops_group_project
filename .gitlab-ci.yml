@@ -38,7 +38,8 @@ test-processor:
     - python --version # for debugging
     - echo "This job tests our main test_query_processory.py file."
     - pytest --version # for debugging
-    - py.test ./tests/test_query_processor.py # or include python3 -m (in front)
+    #- py.test ./tests/test_query_processor.py # or include python3 -m (in front)
+    - python -m pytest ./tests/test_query_processor.py
 
 deploy-prod:
   stage: deploy
