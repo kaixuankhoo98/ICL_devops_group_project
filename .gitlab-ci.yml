@@ -23,8 +23,8 @@ test-setup:
      - ls -l
      - export PYTHONPATH="$PYTHONPATH:."
      - python -c "import sys;print(sys.path)"
-     - pytest
      - echo "Testing running of setup file"
+     - python --version # for debugging
      - python -m pytest
      - python3 setup.py # dunno if this is necessary
 
