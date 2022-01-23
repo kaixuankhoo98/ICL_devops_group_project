@@ -41,7 +41,7 @@ deploy-prod:
   stage: deploy
   script:
     - echo "I will deploy now to Heroku." # then we deploy from here...
-    - dpl --provider=heroku --app=matt.barker21@imperial.ac.uk-thawing-reaches-51661 --api-key=797427a0-1154-49d1-a205-9fb44482afcf
+    - dpl --provider=heroku --app=thawing-reaches-51661 --api-key=$HEROKU_KEY
 
   #for adding docker image later. to be tested
   #default:
