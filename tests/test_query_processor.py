@@ -11,5 +11,14 @@ def test_knows_about_shakespeare():
 def test_knows_about_asimov():
     assert any("science fiction" in result for result in process("Asimov"))
 
+def test_knows_about_einstein():
+    assert any("physicist" in result for result in process("Einstein"))
+
+def test_knows_about_wollstonecraft():
+    assert any("philosopher" in result for result in process("Wollstonecraft"))
+
+def test_knows_about_shelley():
+    assert any("novelist" in result for result in process("Shelley"))
+
 def test_not_case_sensitive():
     assert any("playwright" in result for result in process("shakespeare"))
