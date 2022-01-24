@@ -7,4 +7,13 @@ Response to query:<br>
 <li> {{ result }}
 {% endfor %}
 </ul>
+{% adding download button functionality%}
+<form action="/action_page.php">
+  <p>Please select how you'd like to download your query:</p>
+  <input type="radio" id="html" name="download_type" value="HTML">
+  <label for="html">HTML</label><br>
+  <input type="radio" id="markdown" name="download_type" value="markdown">
+  <label for="html">Markdown</label><br>
+
+</form>
 {% endblock %}
