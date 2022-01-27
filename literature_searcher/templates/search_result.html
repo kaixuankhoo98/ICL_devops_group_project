@@ -14,11 +14,13 @@ Response to query:<br>
 
 <script>
   function download_html() {
-
+      return Response(results, mimetype='text/html')
       
   }
 
   function download_markdown() {
+      
+      return Response(results, mimetype='text/markdown')
       
   }
 
