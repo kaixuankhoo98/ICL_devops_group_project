@@ -1,4 +1,4 @@
 build:
     docker:
-        web: Dockerfile.web
-        pandocs: Dockerfile.pandocs
+        web: Dockerfile
+        
