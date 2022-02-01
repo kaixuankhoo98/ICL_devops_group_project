@@ -11,4 +11,4 @@ CMD python app.py
 
 From pandoc/core
 
-CMD echo "Got Pandocs"
+RUN echo "Got Pandocs"
