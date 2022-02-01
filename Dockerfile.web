@@ -1,4 +1,4 @@
-FROM plantiga/pandoc-base
+FROM Python:3
 
 
 COPY . .
