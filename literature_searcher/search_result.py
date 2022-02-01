@@ -20,15 +20,15 @@ def response():
     elif format == "markdown":
         # need to generate a markdown file, save to disk, send to client by putting in filename for this function
         search_results = query_processor.process(query)
-        file = open( ".\\tmp\markdown_query.md", "w")
+        file = open( "/tmp/markdown_query.md", "w")
         # need to save write to makedown_query.md
         file.write(str(search_results))
         file.close()
-        return send_file("..\\tmp\markdown_query.md", mimetype = "markdown", as_attachment=True)
+        return send_file("/tmp/markdown_query.md", mimetype = "markdown", as_attachment=True)
     #if pdf download request
     else:
         search_results = query_processor.process(query)
-        file = open( ".\\tmp\\markdown_query.md", "w")
+        file = open( "/tmp/markdown_query.md", "w")
         #pandoc does not like newline char, need to write line by line
         for l in search_results:
             file.write(l)
@@ -36,10 +36,10 @@ def response():
         #pandoc arguments. relative paths not working. need to adjust when adding to docker.
         args = [
             "pandoc",
-            "C:\\Users\\taole\\Imperial_local\\2_NLP4MS\\devops-python-group-project\\tmp\\markdown_query.md",
+            "/tmp/markdown_query.md",
             "-s",
             "-o",
-            "C:\\Users\\taole\\Imperial_local\\2_NLP4MS\\devops-python-group-project\\tmp\\pdf_query.pdf"
+            "/tmp/pdf_query.pdf"
             ]
         #execute pandoc as a subprocess.
         result = subprocess.Popen(args, stdout=subprocess.PIPE,stderr=subprocess.PIPE)
@@ -47,7 +47,7 @@ def response():
         stdout, stderr = result.communicate()
         print("pandoc stderr: " + str(stderr))
 
-        return send_file("..\\tmp\pdf_query.pdf", mimetype = "application/pdf", as_attachment=True)
+        return send_file("/tmp/pdf_query.pdf", mimetype = "application/pdf", as_attachment=True)
 
 @bp.route("/markdown_result_page.md")
 def generate_large_csv():
