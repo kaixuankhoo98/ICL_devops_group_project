@@ -8,3 +8,7 @@ RUN pip install --no-cache-dir -r requirements.txt
 
 # un the app
 CMD python app.py
+
+From pandoc/core
+
+CMD Echo "Got Pandocs"
