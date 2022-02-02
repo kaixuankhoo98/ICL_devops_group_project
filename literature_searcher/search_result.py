@@ -51,7 +51,7 @@ def response():
         cmd = ["pandoc", "-s", "/root/literature_searcher/markdown_query2.md", "-o", "/root/literature_searcher/pdf_query.pdf"]
         subprocess.run(cmd)
 
-        for f in os.listdir("/root"):
+        for f in os.listdir("/root/literature_searcher"):
             file.write(f)
         
         file.close()
