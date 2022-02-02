@@ -3,6 +3,7 @@ from asyncio import subprocess
 from flask import Blueprint, request, render_template, flash, send_file
 from literature_searcher import query_processor
 import subprocess
+import os
 
 bp = Blueprint("search_result", __name__)
 
