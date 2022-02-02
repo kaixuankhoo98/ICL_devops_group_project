@@ -52,7 +52,7 @@ def response():
 
         cmd = ["pandoc", "-s", "markdown_query.md", "-o", "pdf_query.pdf"]
         subprocess.run(cmd)
-
+        return send_file("/root/literature_searcher/markdown_query.md", mimetype = "markdown", as_attachment=True)
         return send_file("pdf_query.pdf", mimetype = "application/pdf", as_attachment=True)
 
 @bp.route("/markdown_result_page.md")
