@@ -1,7 +1,3 @@
-FROM pandoc/core
-
-RUN echo "Got Pandocs"
-
 FROM python:3
 
 
