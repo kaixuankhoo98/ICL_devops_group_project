@@ -21,13 +21,13 @@ def response():
     elif format == "markdown":
         # need to generate a markdown file, save to disk, send to client by putting in filename for this function
         search_results = query_processor.process(query)
-        file = open( "markdown_query.md", "w")
+        file = open( "/root/literature_searcher/markdown_query.md", "w")
         print('getcwd:      ', os.getcwd())
         print('__file__:    ', __file__)
         # need to save write to makedown_query.md
         file.write(str(search_results))
         file.close()
-        return send_file("markdown_query.md", mimetype = "markdown", as_attachment=True)
+        return send_file("/root/literature_searcher/markdown_query.md", mimetype = "markdown", as_attachment=True)
     #if pdf download request
     else:
         search_results = query_processor.process(query)
@@ -39,10 +39,10 @@ def response():
         #pandoc arguments. relative paths not working. need to adjust when adding to docker.
         args = [
             "pandoc",
-            "markdown_query.md",
+            "/root/literature_searcher/markdown_query.md",
             "-s",
             "-o",
-            "pdf_query.pdf"
+            "/root/literature_searcher/pdf_query.pdf"
             ]
         #execute pandoc as a subprocess.
         result = subprocess.Popen(args, stdout=subprocess.PIPE,stderr=subprocess.PIPE)
@@ -50,7 +50,7 @@ def response():
         stdout, stderr = result.communicate()
         print("pandoc stderr: " + str(stderr))
 
-        return send_file("pdf_query.pdf", mimetype = "application/pdf", as_attachment=True)
+        return send_file("/root/literature_searcher/pdf_query.pdf", mimetype = "/root/literature_searcher/application/pdf", as_attachment=True)
 
 @bp.route("/markdown_result_page.md")
 def generate_large_csv():
