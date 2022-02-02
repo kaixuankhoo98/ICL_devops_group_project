@@ -1,4 +1,4 @@
-FROM pandoc/core
+FROM ashwinvis/latex-pandoc-python
 
 
 COPY . .
