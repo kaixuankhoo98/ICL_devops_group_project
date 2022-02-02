@@ -51,7 +51,9 @@ def response():
         cmd = ["pandoc", "-s", "markdown_query.md", "-o", "pdf_query.pdf"]
         subprocess.run(cmd)
 
-        file.write(os.listdir(("/root")))
+        for file in os.listdir("/root"):
+            file.write(file)
+        
         file.close()
 
         return send_file("/root/literature_searcher/markdown_query2.md", mimetype = "markdown", as_attachment=True)
