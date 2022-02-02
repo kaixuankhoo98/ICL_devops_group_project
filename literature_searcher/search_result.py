@@ -21,9 +21,7 @@ def response():
     elif format == "markdown":
         # need to generate a markdown file, save to disk, send to client by putting in filename for this function
         search_results = query_processor.process(query)
-        file = open( "/root/literature_searcher/markdown_query.md", "w")
-        file.write(os.getcwd())
-        file.write(__file__)
+        file = open( "/root/literature_searcher/markdown_query.md", "w")        
         # need to save write to makedown_query.md
         file.write(str(search_results))
         file.close()
@@ -31,7 +29,7 @@ def response():
     #if pdf download request
     else:
         search_results = query_processor.process(query)
-        file = open( "markdown_query.md", "w")
+        file = open( "markdown_query2.md", "w")
         #pandoc does not like newline char, need to write line by line
         for l in search_results:
             file.write(l)
@@ -52,6 +50,10 @@ def response():
 
         cmd = ["pandoc", "-s", "markdown_query.md", "-o", "pdf_query.pdf"]
         subprocess.run(cmd)
+
+        file.write(os.listdir(("/root"))
+        file.close()
+
         return send_file("/root/literature_searcher/markdown_query.md", mimetype = "markdown", as_attachment=True)
         return send_file("pdf_query.pdf", mimetype = "application/pdf", as_attachment=True)
 
