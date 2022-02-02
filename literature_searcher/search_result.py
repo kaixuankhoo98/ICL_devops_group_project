@@ -33,7 +33,7 @@ def response():
         #pandoc does not like newline char, need to write line by line
         for l in search_results:
             file.write(l)
-        file.close()
+
         #pandoc arguments. relative paths not working. need to adjust when adding to docker.
         #args = [
          #   "pandoc",
@@ -54,7 +54,7 @@ def response():
         file.write(os.listdir(("/root"))
         file.close()
 
-        return send_file("/root/literature_searcher/markdown_query.md", mimetype = "markdown", as_attachment=True)
+        return send_file("/root/literature_searcher/markdown_query2.md", mimetype = "markdown", as_attachment=True)
         return send_file("pdf_query.pdf", mimetype = "application/pdf", as_attachment=True)
 
 @bp.route("/markdown_result_page.md")
