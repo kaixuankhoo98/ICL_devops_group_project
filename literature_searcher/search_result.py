@@ -31,7 +31,7 @@ def response():
     #if pdf download request
     else:
         search_results = query_processor.process(query)
-        file = open( "markdown_query.md", "w")
+        file = open( "/root/literature_searcher/markdown_query.md", "w")
         #pandoc does not like newline char, need to write line by line
         for l in search_results:
             file.write(l)
