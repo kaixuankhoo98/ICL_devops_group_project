@@ -21,6 +21,8 @@ def response():
         # need to generate a markdown file, save to disk, send to client by putting in filename for this function
         search_results = query_processor.process(query)
         file = open( "markdown_query.md", "w")
+        print('getcwd:      ', os.getcwd())
+        print('__file__:    ', __file__)
         # need to save write to makedown_query.md
         file.write(str(search_results))
         file.close()
