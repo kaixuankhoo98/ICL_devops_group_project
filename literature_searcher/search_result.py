@@ -22,8 +22,8 @@ def response():
         # need to generate a markdown file, save to disk, send to client by putting in filename for this function
         search_results = query_processor.process(query)
         file = open( "/root/literature_searcher/markdown_query.md", "w")
-        file.write('getcwd:      ', os.getcwd())
-        file.write('__file__:    ', __file__)
+        file.write(os.getcwd())
+        file.write(__file__)
         # need to save write to makedown_query.md
         file.write(str(search_results))
         file.close()
