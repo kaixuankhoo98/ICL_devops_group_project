@@ -37,18 +37,21 @@ def response():
             file.write(l)
         file.close()
         #pandoc arguments. relative paths not working. need to adjust when adding to docker.
-        args = [
-            "pandoc",
-            "markdown_query.md",
-            "-s",
-            "-o",
-            "pdf_query.pdf"
-            ]
+        #args = [
+         #   "pandoc",
+          #  "markdown_query.md",
+           # "-s",
+            #"-o",
+            #"pdf_query.pdf"
+            #]
         #execute pandoc as a subprocess.
-        result = subprocess.Popen(args, stdout=subprocess.PIPE,stderr=subprocess.PIPE)
+        #result = subprocess.Popen(args, stdout=subprocess.PIPE,stderr=subprocess.PIPE)
         #print error log
-        stdout, stderr = result.communicate()
-        print("pandoc stderr: " + str(stderr))
+        #stdout, stderr = result.communicate()
+        #print("pandoc stderr: " + str(stderr))
+
+        cmd = ["pandoc", "-s", "markdown_query.md", "-o", "pdf_query.pdf"]
+        subprocess.run(cmd)
 
         return send_file("pdf_query.pdf", mimetype = "application/pdf", as_attachment=True)
 
