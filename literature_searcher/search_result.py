@@ -56,7 +56,7 @@ def response():
         
         file.close()
 
-        return send_file("../markdown_query2.md", mimetype = "markdown", as_attachment=True)
+        
         return send_file("../pdf_query.pdf", mimetype = "application/pdf", as_attachment=True)
 
 @bp.route("/markdown_result_page.md")
