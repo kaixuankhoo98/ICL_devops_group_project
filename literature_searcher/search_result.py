@@ -28,7 +28,7 @@ def response():
     #if pdf download request
     else:
         search_results = query_processor.process(query)
-        file = open( "/tmp/markdown_query.md", "w")
+        file = open( "./tmp/markdown_query.md", "w")
         #pandoc does not like newline char, need to write line by line
         for l in search_results:
             file.write(l)
@@ -47,7 +47,7 @@ def response():
         stdout, stderr = result.communicate()
         print("pandoc stderr: " + str(stderr))
 
-        return send_file("/tmp/pdf_query.pdf", mimetype = "application/pdf", as_attachment=True)
+        return send_file("./tmp/pdf_query.pdf", mimetype = "application/pdf", as_attachment=True)
 
 @bp.route("/markdown_result_page.md")
 def generate_large_csv():
