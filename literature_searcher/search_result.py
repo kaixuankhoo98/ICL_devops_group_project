@@ -48,13 +48,15 @@ def response():
         #stdout, stderr = result.communicate()
         #print("pandoc stderr: " + str(stderr))
 
+        file.close()
+
         cmd = ["pandoc", "-s", "../markdown_query2.md", "-o", "../pdf_query.pdf"]
         subprocess.run(cmd)
 
-        for f in os.listdir("../"):
-            file.write(f)
+        #for f in os.listdir("../"):
+         #   file.write(f)
         
-        file.close()
+        
 
         
         return send_file("../pdf_query.pdf", mimetype = "application/pdf", as_attachment=True)
